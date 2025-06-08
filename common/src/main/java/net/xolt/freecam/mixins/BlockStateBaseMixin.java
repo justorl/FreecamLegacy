@@ -27,9 +27,6 @@ public abstract class BlockStateBaseMixin {
     private void onGetCollisionShape(BlockGetter world, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
         if (context instanceof EntityCollisionContext entityShapeContext && entityShapeContext.getEntity() instanceof FreeCamera) {
             // Return early if "Always Check Initial Collision" is on and Freecam isn't enabled yet
-            if (ModConfig.INSTANCE.collision.alwaysCheck && !Freecam.isEnabled()) {
-                return;
-            }
             // Otherwise, check the collision config
             if (CollisionBehavior.isIgnored(getBlock())) {
                 cir.setReturnValue(Shapes.empty());

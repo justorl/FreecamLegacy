@@ -58,11 +58,11 @@ public class MultiPlayerGameModeMixin {
 
     @Unique
     private static boolean freecam$disableInteract() {
-        return Freecam.isEnabled() && !Freecam.isPlayerControlEnabled() && !freecam$allowInteract();
+        return true;
     }
 
     @Unique
     private static boolean freecam$allowInteract() {
-        return ModConfig.INSTANCE.utility.allowInteract && (BuildVariant.getInstance().cheatsPermitted() || ModConfig.INSTANCE.utility.interactionMode.equals(PLAYER));
+        return false;
     }
 }

@@ -66,11 +66,11 @@ public class EntityMixin {
 
     @Unique
     private boolean freecam$shouldFreeze() {
-        return Freecam.isEnabled() && this.equals(MC.player) && freecam$allowFreeze();
+        return false;
     }
 
     @Unique
     private boolean freecam$allowFreeze() {
-        return ModConfig.INSTANCE.utility.freezePlayer && BuildVariant.getInstance().cheatsPermitted() && !Freecam.isPlayerControlEnabled();
+        return false;
     }
 }

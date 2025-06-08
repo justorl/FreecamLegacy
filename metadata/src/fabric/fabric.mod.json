@@ -1,16 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "${mod_id}",
-  "version": "${version}",
-  "name": "${name}",
+  "id": "legacy-freecam",
+  "version": "1.0.0",
+  "name": "LegacyFreecam",
   "description": "${description}",
   "authors": [
-    ${json_authors}
+    "o_orl"
   ],
   "contact": {
-    "homepage": "${homepage_url}",
-    "sources": "${source_code_url}",
-    "issues": "${issue_tracker_url}"
+    "homepage": "${homepage_url}"
   },
   "license": "${licence}",
   "icon": "icon.png",
@@ -31,15 +29,5 @@
     "fabricloader": "${fabric_loader_req}",
     "fabric": "*",
     "minecraft": "${fabric_mc_req}"
-  },
-  "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.crowdin": "${crowdin_url}",
-        "modmenu.curseforge": "${curseforge_url}",
-        "modmenu.modrinth": "${modrinth_url}",
-        "modmenu.github_releases": "${gh_releases_url}"
-      }
-    }
   }
 }

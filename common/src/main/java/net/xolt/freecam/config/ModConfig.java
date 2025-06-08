@@ -61,39 +61,6 @@ public class ModConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.Gui.CollapsibleObject
-    public CollisionConfig collision = new CollisionConfig();
-    public static class CollisionConfig {
-        @ConfigEntry.Gui.Tooltip
-        public boolean ignoreTransparent = false;
-
-        @ConfigEntry.Gui.Tooltip
-        public boolean ignoreOpenable = false;
-
-        @VariantTooltip(variant = "normal", count = 1)
-        @VariantTooltip(variant = "modrinth", count = 2)
-        public boolean ignoreCustom = false;
-
-        @ConfigEntry.Gui.TransitiveObject
-        public CollisionWhitelist whitelist = new CollisionWhitelist();
-        public static class CollisionWhitelist {
-            @ConfigEntry.Gui.Tooltip(count = 2)
-            public List<String> ids = new ArrayList<>();
-            @ValidateRegex
-            @ConfigEntry.Gui.Tooltip(count = 2)
-            public List<String> patterns = new ArrayList<>();
-        }
-
-        @VariantTooltip(variant = "normal", count = 2)
-        @VariantTooltip(variant = "modrinth", count = 3)
-        // Default to true, when not running a modrinth build
-        public boolean ignoreAll = !BuildVariant.getInstance().name().equals("modrinth");
-
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        public boolean alwaysCheck = false;
-    }
-
-    @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.Gui.CollapsibleObject
     public VisualConfig visual = new VisualConfig();
     public static class VisualConfig {
         @ConfigEntry.Gui.Tooltip
@@ -101,16 +68,7 @@ public class ModConfig implements ConfigData {
         public Perspective perspective = Perspective.INSIDE;
 
         @ConfigEntry.Gui.Tooltip
-        public boolean showPlayer = true;
-
-        @ConfigEntry.Gui.Tooltip
         public boolean showHand = false;
-
-        @ConfigEntry.Gui.Tooltip
-        public boolean fullBright = false;
-
-        @ConfigEntry.Gui.Tooltip
-        public boolean showSubmersion = false;
     }
 
     @ConfigEntry.Gui.Tooltip
@@ -119,13 +77,6 @@ public class ModConfig implements ConfigData {
     public static class UtilityConfig {
         @ConfigEntry.Gui.Tooltip
         public boolean disableOnDamage = true;
-
-        @VariantTooltip(count = 2)
-        public boolean freezePlayer = false;
-
-        @VariantTooltip(variant = "normal", count = 2)
-        @VariantTooltip(variant = "modrinth", count = 3)
-        public boolean allowInteract = false;
 
         @ConfigEntry.Gui.Tooltip
         @ConfigEntry.Gui.EnumHandler(option = EnumDisplayOption.BUTTON)

@@ -3,7 +3,6 @@ import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
     id "com.github.johnrengelman.shadow"
-    id "com.hypherionmc.modutils.modpublisher"
 }
 
 def variants = rootProject.build_variants.split(',')
@@ -121,12 +120,5 @@ variants.each { variant ->
 components.java {
     withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
         skip()
-    }
-}
-
-publisher {
-    [ curseDepends, modrinthDepends ].each {
-        it.required "fabric-api"
-        it.optional "modmenu"
     }
 }

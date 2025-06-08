@@ -26,14 +26,4 @@ public class FreecamKeyMapping extends KeyMapping implements Tickable {
     public void tick() {
         onTick.accept(this);
     }
-
-    /**
-     * Reset whether the key was pressed.
-     * <p>
-     * @implNote Cannot use {@link KeyMapping#release()} because it doesn't work as expected.
-     */
-    @SuppressWarnings("StatementWithEmptyBody")
-    public void reset() {
-        while (consumeClick()) {}
-    }
 }

@@ -29,39 +29,10 @@ public class CollisionBehavior {
 
     @SuppressWarnings("RedundantIfStatement")
     public static boolean isIgnored(Block block) {
-        if (ModConfig.INSTANCE.collision.ignoreAll && BuildVariant.getInstance().cheatsPermitted()) {
-            return true;
-        }
-
-        if (ModConfig.INSTANCE.collision.ignoreTransparent && transparent.test(block)) {
-            return true;
-        }
-
-        if (ModConfig.INSTANCE.collision.ignoreOpenable && openable.test(block)) {
-            return true;
-        }
-
-        if (ModConfig.INSTANCE.collision.ignoreCustom && custom.test(block)) {
-            return true;
-        }
-
         return false;
     }
 
     static InteractionResult onConfigChange(ConfigHolder<ModConfig> holder, ModConfig config) {
-        String[] ids = config.collision.whitelist.ids.stream()
-                .map(id -> id.contains(":") ? id : "minecraft:" + id)
-                .toArray(String[]::new);
-
-        Pattern[] patterns = config.collision.whitelist.patterns.stream()
-                .map(Pattern::compile)
-                .toArray(Pattern[]::new);
-
-        custom = Builder.builder()
-                .matching(ids)
-                .matching(patterns)
-                .build();
-
         return InteractionResult.PASS;
     }
 

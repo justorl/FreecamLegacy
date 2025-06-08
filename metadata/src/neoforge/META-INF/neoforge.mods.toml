@@ -1,10 +1,9 @@
 modLoader = "javafml"
 loaderVersion = "${neoforge_loader_req}"
-issueTrackerURL = "${issue_tracker_url}"
-license = "${licence}"
+issueTrackerURL = "${homepage_url}"
 
 [[mods]]
-modId = "${mod_id}"
+modId = "legacy_freecam"
 version = "${version}"
 displayName = "${name}"
 displayURL = "${homepage_url}"

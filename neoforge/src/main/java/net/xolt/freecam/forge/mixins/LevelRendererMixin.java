@@ -18,10 +18,7 @@ public class LevelRendererMixin {
 
     // Disable player rendering if show player is disabled
     // (non-camera LocalPlayers are rendered by default on Forge)
-    @Inject(method = "renderEntity", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "renderEntity", at = @At("HEAD"))
     private void onRenderEntity(Entity entity, double x, double y, double z, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, CallbackInfo ci) {
-        if (entity == MC.player && Freecam.isEnabled() && !ModConfig.INSTANCE.visual.showPlayer) {
-            ci.cancel();
-        }
     }
 }

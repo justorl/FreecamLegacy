@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.xolt.freecam.config.ModConfig;
 import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
 import java.util.UUID;
@@ -196,8 +197,8 @@ public class FreeCamera extends LocalPlayer {
 
     // Prevents pistons from moving FreeCamera when collision.ignoreAll is enabled.
     @Override
-    public PushReaction getPistonPushReaction() {
-        return ModConfig.INSTANCE.collision.ignoreAll ? PushReaction.IGNORE : PushReaction.NORMAL;
+    public @NotNull PushReaction getPistonPushReaction() {
+        return PushReaction.NORMAL;
     }
 
     // Prevents collision with solid entities (shulkers, boats)
